@@ -1,10 +1,33 @@
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Partners {
+  ID          Int           @id @default(autoincrement())
+  name        String
+  domain      String
+  UserPartner UserPartner[]
+}
+
+model UserPartner {
+  ID           Int      @id @default(autoincrement())
+  refreshToken String?
+  userID       Int
+  partnerID    Int
+  Partners     Partners @relation(fields: [partnerID], references: [ID], onDelete: NoAction, onUpdate: NoAction)
+  Users        Users    @relation(fields: [userID], references: [ID], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Users {
+  ID          Int           @id @default(autoincrement())
+  firstName   String?
+  middleName  String?
+  lastName    String?
+  email       String        @unique(map: "sqlite_autoindex_Users_1")
+  phoneNumber String?
+  googleID    String?
+  facebookID  String?
+  microsoftID String?
+  UserPartner UserPartner[]
 }
