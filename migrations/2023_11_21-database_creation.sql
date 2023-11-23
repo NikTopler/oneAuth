@@ -1,4 +1,4 @@
-CREATE TABLE Users (
+CREATE TABLE users (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName TEXT,
     middleName TEXT,
@@ -10,18 +10,21 @@ CREATE TABLE Users (
     microsoftID TEXT
 );
 
-CREATE TABLE Partners (
+CREATE TABLE applications (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    domain TEXT NOT NULL
+    description TEXT,
+    userID INTEGER NOT NULL,
+    FOREIGN KEY (userID) REFERENCES Users(ID)
 );
 
-CREATE TABLE UserPartner (
+CREATE TABLE sessions (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    refreshToken TEXT,
+    token TEXT NOT NULL,
+    createdAt TEXT NOT NULL,
+    expiresAt TEXT NOT NULL,
     userID INTEGER NOT NULL,
-    partnerID INTEGER NOT NULL,
-    
-    FOREIGN KEY (userID) REFERENCES Users (ID),
-    FOREIGN KEY (partnerID) REFERENCES Partners (ID)
+    applicationID INTEGER,
+    FOREIGN KEY (userID) REFERENCES Users(ID),
+    FOREIGN KEY (applicationID) REFERENCES Applications(ID)
 );
