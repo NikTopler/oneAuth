@@ -28,9 +28,7 @@ model users {
   firstName   String?
   middleName  String?
   lastName    String?
-  email       String  @unique(map: "sqlite_autoindex_users_1")
   phoneNumber String?
-  googleID    String?
-  facebookID  String?
-  microsoftID String?
+  email       String  @unique(map: "sqlite_autoindex_users_1")
+  password    String?
 }

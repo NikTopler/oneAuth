@@ -3,11 +3,9 @@ CREATE TABLE users (
     firstName TEXT,
     middleName TEXT,
     lastName TEXT,
-    email TEXT UNIQUE NOT NULL,
     phoneNumber TEXT,
-    googleID TEXT,
-    facebookID TEXT,
-    microsoftID TEXT
+    email TEXT UNIQUE NOT NULL,
+    password TEXT
 );
 
 CREATE TABLE applications (
