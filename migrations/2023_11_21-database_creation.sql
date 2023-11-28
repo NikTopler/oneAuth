@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE Users (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName TEXT,
     middleName TEXT,
@@ -8,7 +8,7 @@ CREATE TABLE users (
     password TEXT
 );
 
-CREATE TABLE applications (
+CREATE TABLE Applications (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     description TEXT,
@@ -16,7 +16,7 @@ CREATE TABLE applications (
     FOREIGN KEY (userID) REFERENCES Users(ID)
 );
 
-CREATE TABLE sessions (
+CREATE TABLE Sessions (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     token TEXT NOT NULL,
     createdAt TEXT NOT NULL,

@@ -7,28 +7,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model applications {
-  ID          Int     @id @default(autoincrement())
+model Applications {
+  ID          Int        @id @default(autoincrement())
   name        String
   description String?
   userID      Int
+  Users       Users      @relation(fields: [userID], references: [ID], onDelete: NoAction, onUpdate: NoAction)
+  Sessions    Sessions[]
 }
 
-model sessions {
-  ID            Int    @id @default(autoincrement())
+model Sessions {
+  ID            Int           @id @default(autoincrement())
   token         String
   createdAt     String
   expiresAt     String
   userID        Int
   applicationID Int?
+  Applications  Applications? @relation(fields: [applicationID], references: [ID], onDelete: NoAction, onUpdate: NoAction)
+  Users         Users         @relation(fields: [userID], references: [ID], onDelete: NoAction, onUpdate: NoAction)
 }
 
-model users {
-  ID          Int     @id @default(autoincrement())
-  firstName   String?
-  middleName  String?
-  lastName    String?
-  phoneNumber String?
-  email       String  @unique(map: "sqlite_autoindex_users_1")
-  password    String?
+model Users {
+  ID           Int            @id @default(autoincrement())
+  firstName    String?
+  middleName   String?
+  lastName     String?
+  phoneNumber  String?
+  email        String         @unique(map: "sqlite_autoindex_Users_1")
+  password     String?
+  Applications Applications[]
+  Sessions     Sessions[]
 }
