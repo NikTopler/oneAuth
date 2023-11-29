@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="/styles/auth/auth-form.css" />
+
+<form 
+    id="auth-form" 
+    method="post" 
+    hx-post="/sign-up" 
+    hx-target="#auth-form" 
+    hx-swap="innerHTML" 
+    hx-trigger="submit">
+    <%if(form.errors.length > 0) {%>
+    <section>
+        <ul>
+            <%form.errors.forEach((error) => {%>
+            <li>
+                <p><%=error.description%></p>
+                <span><%=error.message%></span>
+                <code><%=error.name%></code>
+            </li>
+            <%})%>
+        </ul>
+    </section>
+    <%}%>
+    <section>
+        <%- include('../atoms/form-field.ejs', form.email) %>
+        <%- include('../atoms/password-field.ejs', form.password) %>
+    </section>
+    <button type="submit">Submit</button>
+</form>

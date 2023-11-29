@@ -1,0 +1,18 @@
+<div id="form-<%=name%>-field-container">
+  <label for="<%=name%>-field"><%=label%></label>
+  <input
+    type="<%=type%>"
+    name="<%=name%>-field"
+    value="<%=value%>"
+    <% if(pattern) { %> pattern="<%=pattern%>" <% } %>
+    hx-post="<%=validationUrl%>"
+    hx-indicator="#<%=name%>-validator"
+    hx-target="#form-<%=name%>-field-container"
+    hx-swap="innerHTML" />
+
+  <span id="<%=name%>-validator" class="form-validator">Validating...</span>
+
+  <% if(!valid && value.length > 0) { %>
+  <span style="color: red"> <%= errorMessage %> </span>
+  <% } %>
+</div>
