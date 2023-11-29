@@ -4,11 +4,13 @@ type FormFieldProps = {
     required: boolean;
     value: string;
     pattern: false | string;
-    validationUrl?: string;
     type: 'text' | 'password' | 'email' | 'tel' | 'number';
     autocomplete: false | 'current-password' | 'email' | 'username'
     valid: boolean;
     errorMessage: string | null;
+    serverValidation: false | {
+        validationUrl: string;
+    }
 }
 
 const FORM_FIELD_PROPS: Readonly<FormFieldProps> = {
@@ -20,7 +22,8 @@ const FORM_FIELD_PROPS: Readonly<FormFieldProps> = {
     type: 'text',
     autocomplete: false,
     valid: false,
-    errorMessage: null
+    errorMessage: null,
+    serverValidation: false
 };
 
 const REGEX = {

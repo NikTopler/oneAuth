@@ -23,7 +23,9 @@ const SIGN_UP_DEFAULT_PROPS: SignUpPageProps = {
             name: 'email',
             label: 'Email',
             autocomplete: 'email',
-            validationUrl: ROUTES.validation.email
+            serverValidation: {
+                validationUrl: ROUTES.validation.email
+            }
         },
         password: {
             ...FORM_FIELD_PROPS,

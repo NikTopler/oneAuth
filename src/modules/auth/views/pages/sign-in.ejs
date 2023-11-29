@@ -1,0 +1,18 @@
+<html lang="en">
+  <%- include('../../../shared/views/partials/head.ejs', {title, description}) %>
+  <body>
+    <main>
+      <header>
+        <h1>Sign up</h1>
+      </header>
+      <%- include('../molecules/auth-form.ejs', {form}) %>
+      <span>or</span>
+      <div>
+        <button>Google</button>
+        <button>Facebook</button>
+        <button>Microsoft</button>
+        <button>Github</button>
+      </div>
+    </main>
+  </body>
+</html>

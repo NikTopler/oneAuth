@@ -7,10 +7,14 @@
     value="<%=value%>"
     <% if(pattern) { %> pattern="<%=pattern%>" <% } %>
     <% if(autocomplete) { %> autocomplete="<%=autocomplete%>" <% } %>
-    hx-post="<%=validationUrl%>"
-    hx-indicator="#<%=name%>-validator"
-    hx-target="#form-<%=name%>-field-container"
-    hx-swap="outerHTML" />
+
+    <% if(serverValidation !== false) { %>  
+      hx-post="<%=serverValidation.validationUrl%>"
+      hx-indicator="#<%=name%>-validator"
+      hx-target="#form-<%=name%>-field-container"
+      hx-swap="outerHTML" 
+    <% } %>
+  />
 
   <span id="<%=name%>-validator" class="form-validator">Validating...</span>
 
