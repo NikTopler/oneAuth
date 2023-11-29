@@ -10,7 +10,6 @@ app.set('view engine', 'ejs');
 app.set('views', 'src/modules/auth/views');
 
 app.post('/api/validation/email', AuthValidationController.email);
-app.post('/api/validation/password', AuthValidationController.password);
 
 app.get('/sign-up', AuthController.signUpView);
 app.post('/sign-up', AuthController.signUp);

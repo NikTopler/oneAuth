@@ -6,6 +6,7 @@ type FormFieldProps = {
     pattern: false | string;
     validationUrl?: string;
     type: 'text' | 'password' | 'email' | 'tel' | 'number';
+    autocomplete: false | 'current-password' | 'email' | 'username'
     valid: boolean;
     errorMessage: string | null;
 }
@@ -17,6 +18,7 @@ const FORM_FIELD_PROPS: Readonly<FormFieldProps> = {
     pattern: false,
     required: true,
     type: 'text',
+    autocomplete: false,
     valid: false,
     errorMessage: null
 };
@@ -27,8 +29,7 @@ const REGEX = {
 
 const ROUTES = {
     validation: {
-        email: '/api/validation/email',
-        password: '/api/validation/password'
+        email: '/api/validation/email'
     },
     signUp: {
         view: '/sign-up',
@@ -41,6 +42,10 @@ const ROUTES = {
     dashboard: {
         view: '/dashboard'
     }
+}
+
+export type {
+    FormFieldProps
 }
 
 export {

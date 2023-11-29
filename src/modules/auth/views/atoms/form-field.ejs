@@ -1,14 +1,16 @@
 <div id="form-<%=name%>-field-container">
   <label for="<%=name%>-field"><%=label%></label>
   <input
+    id="<%=name%>-field"
     type="<%=type%>"
     name="<%=name%>-field"
     value="<%=value%>"
     <% if(pattern) { %> pattern="<%=pattern%>" <% } %>
+    <% if(autocomplete) { %> autocomplete="<%=autocomplete%>" <% } %>
     hx-post="<%=validationUrl%>"
     hx-indicator="#<%=name%>-validator"
     hx-target="#form-<%=name%>-field-container"
-    hx-swap="innerHTML" />
+    hx-swap="outerHTML" />
 
   <span id="<%=name%>-validator" class="form-validator">Validating...</span>
 

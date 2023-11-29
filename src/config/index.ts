@@ -1,8 +1,9 @@
-import { FORM_FIELD_PROPS, REGEX, ROUTES } from "./constants";
+import { FORM_FIELD_PROPS, FormFieldProps, REGEX, ROUTES } from "./constants";
 import ERROR_CODES, { ErrorCode } from "./error-codes";
 
 export type {
-    ErrorCode
+    ErrorCode,
+    FormFieldProps
 }
 
 export {

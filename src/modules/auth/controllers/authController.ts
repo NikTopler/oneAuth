@@ -1,9 +1,19 @@
 import { Request, Response } from "express";
-import { ERROR_CODES, FORM_FIELD_PROPS, REGEX, ROUTES } from "../../../config";
+import { ERROR_CODES, FORM_FIELD_PROPS, FormFieldProps, REGEX, ROUTES } from "../../../config";
 import { authService } from "../services";
 import { emailSchema } from "../../shared/schemas";
 
-const SIGN_UP_DEFAULT_PROPS = {
+type SignUpPageProps = {
+    title: string;
+    description: string;
+    form: {
+        errors: string[];
+        email: FormFieldProps;
+        password: FormFieldProps;
+    };
+};
+
+const SIGN_UP_DEFAULT_PROPS: SignUpPageProps = {
     title: 'Sign Up',
     description: 'Sign up page',
     form: {
@@ -12,6 +22,7 @@ const SIGN_UP_DEFAULT_PROPS = {
             ...FORM_FIELD_PROPS,
             name: 'email',
             label: 'Email',
+            autocomplete: 'email',
             validationUrl: ROUTES.validation.email
         },
         password: {
@@ -19,7 +30,7 @@ const SIGN_UP_DEFAULT_PROPS = {
             name: 'password',
             label: 'Password',
             pattern: REGEX.password,
-            validationUrl: ROUTES.validation.password
+            autocomplete: 'current-password'
         }
     }
 };

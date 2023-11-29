@@ -10,7 +10,8 @@ function email(req: Request, res: Response) {
         name: 'email',
         label: 'Email',
         type: 'email',
-        validationUrl: ROUTES.validation.email
+        autocomplete: 'email',
+        validationUrl: ROUTES.validation.email,
     };
 
     if (email === undefined) {
@@ -32,8 +33,7 @@ function password(req: Request, res: Response) {
         ...FORM_FIELD_PROPS,
         name: 'password',
         label: 'Password',
-        type: 'password',
-        validationUrl: ROUTES.validation.password
+        type: 'password'
     };
 
     if (password === undefined) {

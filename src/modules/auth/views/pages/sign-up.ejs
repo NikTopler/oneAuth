@@ -22,7 +22,7 @@
     passwordFieldInit();
   }
   document.addEventListener("htmx:afterOnLoad", (data) => {
-    if(data.target.id == 'auth-form') {
+    if(data.detail.target.id == 'auth-form') {
       passwordFieldInit();
     }
   });

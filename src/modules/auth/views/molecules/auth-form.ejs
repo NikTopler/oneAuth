@@ -5,7 +5,7 @@
     method="post" 
     hx-post="/sign-up" 
     hx-target="#auth-form" 
-    hx-swap="innerHTML" 
+    hx-swap="outerHTML" 
     hx-trigger="submit">
     <%if(form.errors.length > 0) {%>
     <section>
