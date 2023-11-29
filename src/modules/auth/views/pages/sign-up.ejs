@@ -16,3 +16,14 @@
     </main>
   </body>
 </html>
+
+<script>
+  window.onload = () => {
+    passwordFieldInit();
+  }
+  document.addEventListener("htmx:afterOnLoad", (data) => {
+    if(data.target.id == 'auth-form') {
+      passwordFieldInit();
+    }
+  });
+</script>
