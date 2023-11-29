@@ -1,0 +1,8 @@
+.form-validator {
+    opacity: 0;
+    color: blue;
+}
+
+.htmx-request {
+    opacity: 1;
+}
