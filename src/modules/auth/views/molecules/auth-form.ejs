@@ -2,8 +2,8 @@
 
 <form 
     id="auth-form" 
-    method="post" 
-    hx-post="/sign-up" 
+    method="post"
+    hx-post="<%=form.action%>" 
     hx-target="#auth-form" 
     hx-swap="outerHTML" 
     hx-trigger="submit">
@@ -22,7 +22,10 @@
     <%}%>
     <section>
         <%- include('../atoms/form-field.ejs', form.email) %>
-        <%- include('../atoms/password-field.ejs', form.password) %>
+        <%- include('../atoms/form-field.ejs', form.password) %>
+        <%if (form.includePasswordHelper) { %>
+            <%- include('../atoms/password-helper.ejs') %>
+        <% } %>
     </section>
     <button type="submit">Submit</button>
 </form>

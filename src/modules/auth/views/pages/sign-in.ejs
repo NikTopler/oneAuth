@@ -3,12 +3,12 @@
   <body>
     <main>
       <header>
-        <h1>Sign up</h1>
+        <h1>Sign in</h1>
       </header>
       <%- include('../molecules/auth-form.ejs', {form}) %>
       <div>
-        <span>Already have an account?</span>
-        <a href="/sign-in">Sign in</a>
+        <span>Don't have an account?</span>
+        <a href="/sign-up">Sign up</a>
       </div>
       <span>or</span>
       <div>
@@ -20,14 +20,3 @@
     </main>
   </body>
 </html>
-
-<script>
-  window.onload = () => {
-    passwordFieldInit();
-  }
-  document.addEventListener("htmx:afterOnLoad", (data) => {
-    if(data.detail.target.id == 'auth-form') {
-      passwordFieldInit();
-    }
-  });
-</script>
