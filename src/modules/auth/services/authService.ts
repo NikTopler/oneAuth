@@ -26,12 +26,45 @@ async function signUpWithPassword(email: Email, password: string): Promise<Users
             }
         }
 
-        console.log(errorCode);
         return errorCode;
     }
 
 }
 
+async function signInWithPassword(email: Email, password: string): Promise<Users | ErrorCode> {
+
+    try {
+
+        const user = await prismaClient.users.findUnique({
+            where: {
+                email
+            }
+        });
+
+        if (!user) {
+            return ERROR_CODES.ERR_INVALID_CREDENTIALS;
+        }
+
+        if (!user.password) {
+            return ERROR_CODES.ERR_NO_PASSWORD_SET;
+        }
+
+        const { salt, hash } = cryptoService.getSaltAndHash(user.password);
+
+        if (!cryptoService.verify(password, salt, hash)) {
+            return ERROR_CODES.ERR_INVALID_CREDENTIALS;
+        }
+
+        return user;
+
+    } catch (error) {
+        console.log(error);
+        return ERROR_CODES.ERR_SOMETHING_WENT_WRONG;
+    }
+
+}
+
 export default {
-    signUpWithPassword
+    signUpWithPassword,
+    signInWithPassword
 }

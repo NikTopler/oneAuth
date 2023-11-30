@@ -14,4 +14,7 @@ app.post('/api/validation/email', AuthValidationController.email);
 app.get('/sign-up', AuthController.signUpView);
 app.post('/sign-up', AuthController.signUp);
 
+app.get('/sign-in', AuthController.signInView);
+app.post('/sign-in', AuthController.signIn);
+
 export default app;

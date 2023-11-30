@@ -18,11 +18,11 @@ const ERROR_CODES: { [code: string]: ErrorCode } = {
         description: 'Invalid email',
         message: 'Please enter a valid email'
     },
-    ERR_INVALID_PASSWORD: {
-        name: 'ERR_INVALID_PASSWORD',
+    ERR_INVALID_CREDENTIALS: {
+        name: 'ERR_INVALID_CREDENTIALS',
         code: 'E003',
-        description: 'Invalid password',
-        message: 'Please enter a valid password'
+        description: 'Invalid credentials',
+        message: 'Email or password is incorrect'
     },
     ERR_INVALID_PHONE_NUMBER: {
         name: 'ERR_INVALID_PHONE_NUMBER',
@@ -53,6 +53,12 @@ const ERROR_CODES: { [code: string]: ErrorCode } = {
         code: 'E008',
         description: 'Could not sign up',
         message: 'Could not sign up. Please try again later.'
+    },
+    ERR_NO_PASSWORD_SET: {
+        name: 'ERR_NO_PASSWORD_SET',
+        code: 'E009',
+        description: 'No password set',
+        message: 'On initial sign up you used social sign up options, please sign in using Google, Facebook or Apple and then go into settings and set a password.',
     },
     ERR_SOMETHING_WENT_WRONG: {
         name: 'ERR_SOMETHING_WENT_WRONG',

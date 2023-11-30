@@ -3,9 +3,13 @@
   <body>
     <main>
       <header>
-        <h1>Sign up</h1>
+        <h1>Sign in</h1>
       </header>
       <%- include('../molecules/auth-form.ejs', {form}) %>
+      <div>
+        <span>Don't have an account?</span>
+        <a href="/sign-up">Sign up</a>
+      </div>
       <span>or</span>
       <div>
         <button>Google</button>
