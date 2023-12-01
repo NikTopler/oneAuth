@@ -35,6 +35,7 @@ model Users {
   phoneNumber  String?
   email        String         @unique(map: "sqlite_autoindex_Users_1")
   password     String?
+  isVerified   Boolean?       @default(false)
   Applications Applications[]
   Sessions     Sessions[]
 }
