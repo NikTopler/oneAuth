@@ -17,4 +17,6 @@ app.post('/sign-up', AuthController.signUp);
 app.get('/sign-in', AuthController.signInView);
 app.post('/sign-in', AuthController.signIn);
 
+app.get('/sign-out', AuthController.signOut);
+
 export default app;
