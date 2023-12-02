@@ -1,0 +1,14 @@
+<html lang="en">
+  <%- include('../partials/head.ejs', {title, description}) %>
+  <body>
+    <main>
+      <header>
+        <h1>Dashboard</h1>
+      </header>
+      <div>
+        <span>Hi, <%= user.email %></span>
+        <a href="/sign-out">Sign out</a>
+      </div>
+    </main>
+  </body>
+</html>

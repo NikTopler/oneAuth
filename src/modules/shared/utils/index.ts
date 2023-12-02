@@ -1,5 +1,7 @@
+import getBaseUrlFromRequest from "./getBaseUrlFromRequest";
 import validateEnv from "./validateEnv";
 
 export {
-    validateEnv
+    validateEnv,
+    getBaseUrlFromRequest
 }
